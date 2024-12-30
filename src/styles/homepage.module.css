@@ -1,0 +1,14 @@
+.main{
+    background-color: black;
+    color: white;
+    text-align: center;
+    min-height: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button{
+    background-color: black;
+}

@@ -1,0 +1,11 @@
+.card{
+    background-color: blue;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    width: fit-content;
+    align-items: center;
+    text-align: center;
+    left: 50%;
+}
