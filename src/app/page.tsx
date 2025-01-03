@@ -1,37 +1,52 @@
 "use client"
-import styles from "~/styles/homepage.module.css"
-import { type ChangeEvent, useState, type FormEvent } from "react";
-import { Form } from "./_components/form";
+import { useState } from "react";
+import styles from "~/styles/homepage.module.css";
 
-/*HookForm*/
+
+const userList = [
+    {
+        name:"Paulo",
+        age:20,
+        id:1
+    },
+    {
+        name:"Nicole",
+        age:23,
+        id:2
+    },
+    {
+        name:"Pedro",
+        age:570,
+        id:3
+    },
+];
+
 export default function Homepage(){
-
-
-
+    const [flag, setFlag] = useState(false);
     function handleClick(){
-        alert("hello world");
+        setFlag(!flag);
     }
 
-    function handleChangeExemplo(event: ChangeEvent<HTMLInputElement>){
-        console.log(event.target.value);
-        console.log(event.target.name);
-    }
-    return (
+    return(
         <main className={styles.main}>
-            <h1>Aulas React - Eventos</h1>
+            <h1>Aulas React - Renderizações</h1>
 
-            <button className={styles.button} onClick={handleClick}>
-                Exibe alert
-            </button>
-
-            <input 
-            className={styles.input} 
-            type="text" 
-            placeholder="name" 
-            onChange={handleChangeExemplo}
-            name="nome"
-            />
-            <Form />
+            <button onClick={handleClick}>Mostrar conteudo</button>
+            <ul>
+            {userList.map((user)=>{
+                return (
+                    <li key={user.id}>
+                        <span> Nome: {user.name}</span>
+                        <span> Idade: {user.age}</span>
+                        <span> Id: {user.id}</span>
+                    </li>
+                )
+            })}
+            </ul>
+            
+            {!flag && <span>Conteudo</span>}
+            {flag && <span>Sem conteúdo</span>}
+            {/*flag? <span>Conteudo Exibido</span> : <span> Sem conteudo</span>*/}
         </main>
-    );
+    )
 }
